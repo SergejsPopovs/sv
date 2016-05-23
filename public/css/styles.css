@@ -1,0 +1,209 @@
+﻿* {
+	margin: 0;
+}
+html {
+	height: 100%;
+}
+body {
+ width: 80%;
+ min-width: 900px;
+ background-image: url("../img/bg/bg-y.jpg"); 
+ background-repeat: repeat;
+ margin: 15px auto;
+ font-family: Arial, "MS Trebuchet", sans-serif;
+ height: 100%;
+ overflow: auto;
+}
+p {
+ margin: 0 0 10px 0;
+ color: #000;
+}
+p, li{
+ line-height: 20px;
+}
+.clear {
+clear : both;
+}
+a {
+    text-decoration: none;
+    font-size: 100%;
+    font-style: normal;
+    vertical-align: baseline;
+    outline: 0;
+}
+/*-- шапка сайта --*/
+header#page_header{
+ width: 100%;
+ height: 150px;
+ background-image: url("../img/bg/bg-net.png");
+ background-repeat: no-repeat;
+ background-size: 100% 100%;
+ margin-bottom: 15px;
+ position: relative ;
+}
+header h1{
+    text-align: justify;
+    padding-top: 40px;
+    color: #00f;
+    font-style: italic;
+    font-size: 300%;
+}
+#img_logo {
+    float: left;
+    margin-left: 50px;
+    padding: 2px;
+}
+/*-- навигация в шапке страницы--*/
+nav#header_navigacija{
+ margin-left: 50px;
+ position: absolute;
+ bottom: 0px;
+ right: 50px;
+}
+header#page_header nav ul{
+ list-style: none;
+ margin: 0;
+ padding: 0;
+}
+#page_header nav ul li{
+ padding: 0;
+ margin: 0 20px 0 0;
+ display: inline;
+}
+#page_header nav ul li a {
+  font-family: Tahoma, Geneva, sans-serif; 
+  text-decoration: none;
+  background: #5c6cb7;
+  font-weight: bold;
+  color: #ffaa00; 
+  padding: 6px 10px 6px 10px;
+}
+#page_header nav ul li a:hover {
+  padding: 6px 10px 6px 10px;
+  font-weight: bold;
+  background: #364d95;
+  color: #ff9900;
+}
+#page_header nav ul li a:sected{
+  background: #364e95;
+}
+/*-- левая колонка с контентом-*/
+section#content{
+ position: relative;
+ float:left;
+ width: 80%;
+ margin-top: 15px;
+ margin-bottom: 15px;
+}
+article.news {
+border : 1px solid #DEDEDE;
+background-color: #fff;
+margin-bottom : 15px;
+box-shadow: 10px 10px 5px rgba(122,122,122,0.5);
+}
+h1.new-header {
+    color: #767676;
+    padding: 10px;
+    font: 26px/118% normal Verdana,Tahoma,sans-serif;
+    text-align: justify;
+}
+a.hew-title-list {
+    color: #666;
+}
+a.hew-title-list:visited {
+    color: #b5b5b5;
+}
+a.hew-title-list:hover {
+    color:#a3a3a3;
+    text-decoration: underline;
+}
+p.published {
+    color: #7e7e7e;
+    padding-left: 10px;
+    font-size: 11px;
+}
+p.content {
+    font-size: 16px;
+    line-height: 160%;
+    font-family: Verdana,sans-serif;
+    text-align: justify;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.img_left {
+float:left;
+margin:0 10px 10px 0;
+padding-left: 10px;
+}
+article.news a.button {
+    background-color: #6ec2e8;
+    font-size: 12px;
+    background-color: #eee !important;
+    color: #282828 !important;
+    border-radius: 6px;
+    border: 1px solid #d9d8d8;
+    font-family: arial,sans-serif;
+    font-weight: normal;
+    padding: 5px 20px 5px 20px;
+    float: right;
+    margin-right: 10px;
+}
+footer.new-list {
+    display: inline-block;
+    vertical-align: middle;
+    font-family: Arial,sans-serif;
+    font-size: 11px;
+    padding: 0 10px;
+    
+}
+footer .views {
+   background: url("../img/logo/eye.png") no-repeat 0px 6px;
+   padding-left: 20px;
+   float: left;
+   font-size: 9px;
+   margin-right: 20px;
+   line-height: 28px;
+}
+/*-- табличка в посте -*/
+table#from-post {
+    width: 90%;
+    margin: 10px auto;
+    border: 2px solid #555;
+    border-collapse: collapse; 
+    table-layout: fixed;
+}
+table#from-post td {
+    border: 1px solid #555;
+    padding: 5px;
+    text-align: center;
+    overflow: auto;
+}
+table#from-post th {
+    border: 2px solid #555;
+    padding: 5px;
+    text-align: center;
+}
+/*-- правая колонка рядом с контентом --*/
+section#sidebar{
+ position: relative;
+ float:right;
+ width: 19%;
+ margin-top: 15px;
+ margin-bottom: 15px;
+}
+section#sidebar img {
+    margin: 10px;
+}
+nav#sidebar_navigacija{
+ background-color: #0c0;
+ width: 100%;
+}/*-- подвальчик -*/
+footer#page_footer{
+ background-color: #fff;
+ clear: both;
+ width: 100%;
+ box-shadow: 10px 10px 5px rgba(122,122,122,0.5);
+ display: block;
+ text-align: center;
+}
+
