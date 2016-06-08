@@ -31,7 +31,7 @@ class MainController extends Controller
     public function show($id)
     {
         $article = Article::find($id);
-        $article->views_count=$article->views_count+1;
+        $article->view_count=$article->view_count+1;
         $article->save();
         $this->data['new'] = $article;
         

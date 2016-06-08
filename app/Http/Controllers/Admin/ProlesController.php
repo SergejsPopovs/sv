@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Prole;
+
 class ProlesController extends Controller
 {
     /**
@@ -14,9 +16,19 @@ class ProlesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct() 
+    {
+        $this->middleware('auth');
+        $this->data = [
+            'title' => 'sedvolejbols',
+        ];
+    }
+    
     public function index()
     {
-        //
+        $proles = Prole::all();
+        $this->data['proles'] = $proles;
+        return view('admin.proles.list',$this->data);
     }
 
     /**
@@ -26,7 +38,7 @@ class ProlesController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.proles.create',$this->data);
     }
 
     /**
@@ -37,7 +49,9 @@ class ProlesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $all=$request->all();
+        Prole::create($all);
+        return back()->with('message','Spēlētāja loma pievienots');
     }
 
     /**
@@ -59,7 +73,9 @@ class ProlesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $prole = Prole::find($id);
+        $this->data['prole'] = $prole;
+        return view('admin.proles.edit',$this->data);
     }
 
     /**
@@ -71,7 +87,10 @@ class ProlesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $prole = Prole::find($id);
+        $prole->update($request->all());
+        $prole->save();
+        return back()->with('message' , 'Spēlētāja loma atjaunināta');
     }
 
     /**
@@ -82,6 +101,8 @@ class ProlesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $prole = Prole::find($id);
+        $prole->delete();
+        return back()->with('message' , 'Spēlētāja loma dzēsta');
     }
 }

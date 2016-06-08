@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Event;
+
 class EventsController extends Controller
 {
     /**
@@ -14,9 +16,19 @@ class EventsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct() 
+    {
+        $this->middleware('auth');
+        $this->data = [
+            'title' => 'sedvolejbols',
+        ];
+    }
+    
     public function index()
     {
-        //
+        $events = Event::all();
+        $this->data['events'] = $events;
+        return view('admin.events.list',$this->data);
     }
 
     /**
@@ -26,7 +38,7 @@ class EventsController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.events.create',$this->data);
     }
 
     /**
@@ -37,7 +49,9 @@ class EventsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $all=$request->all();//введённые пользователем даные в массив all
+        Event::create($all);
+        return back()->with('message','notikums pievienots');
     }
 
     /**
@@ -59,7 +73,9 @@ class EventsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $event = Event::find($id);
+        $this->data['event'] = $event;
+        return view('admin.events.edit',$this->data);
     }
 
     /**
@@ -71,7 +87,10 @@ class EventsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $event = Event::find($id);
+        $event->update($request->all());
+        $event->save();
+        return back()->with('message' , 'notikums atjaunināts');
     }
 
     /**
@@ -82,6 +101,8 @@ class EventsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $event = Event::find($id);
+        $event->delete();
+        return back()->with('message' , 'notikums dzēsts');
     }
 }

@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Article;
+use App\Photo;
+
 class ArticlesController extends Controller
 {
     /**
@@ -14,9 +17,19 @@ class ArticlesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct() 
+    {
+        $this->middleware('auth');
+        $this->data = [
+            'title' => 'sedvolejbols',
+        ];
+    }
+    
     public function index()
     {
-        //
+        $articles = Article::all();
+        $this->data['articles'] = $articles;
+        return view('admin.articles.list',$this->data);
     }
 
     /**
@@ -26,7 +39,9 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        //
+        $photos = Photo::all();
+        $this->data['photos'] = $photos;
+        return view('admin.articles.create',$this->data);
     }
 
     /**
@@ -37,7 +52,9 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $all=$request->all();//введённые пользователем даные в массив all
+        Article::create($all);
+        return back()->with('message','jaunums pievienots');
     }
 
     /**
@@ -59,7 +76,12 @@ class ArticlesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $article = Article::find($id);
+        $photos = Photo::all();
+        $this->data['article'] = $article;
+        $this->data['photos'] = $photos;
+        
+        return view('admin.articles.edit',$this->data);
     }
 
     /**
@@ -71,7 +93,10 @@ class ArticlesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $article = Article::find($id);
+        $article->update($request->all());
+        $article->save();
+        return back()->with('message' , 'Jaunums atjaunināts');
     }
 
     /**
@@ -82,6 +107,8 @@ class ArticlesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $article = Article::find($id);
+        $article->delete();
+        return back()->with('message' , 'Jaunums dzēsts');
     }
 }

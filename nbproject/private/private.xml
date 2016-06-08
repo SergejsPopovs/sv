@@ -3,11 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/root/sergio/sv/app/Http/routes.php</file>
-            <file>file:/root/sergio/sv/resources/views/pages/home.blade</file>
-            <file>file:/root/sergio/sv/public/index.php</file>
-            <file>file:/root/sergio/sv/app/Http/Controllers/MainController.php</file>
-            <file>file:/root/sergio/sv/.env</file>
+            <file>file:/root/sergio/sv/database/migrations/2016_05_18_114024_create_players_table.php</file>
         </group>
     </open-files>
 </project-private>

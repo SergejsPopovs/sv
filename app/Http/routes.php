@@ -31,4 +31,6 @@ Route::group(['prefix'=>'adminzone'] , function()
     Route::resource('articles', 'Admin\ArticlesController');
     Route::resource('events', 'Admin\EventsController');
     Route::resource('players', 'Admin\PlayersController');
+    Route::resource('photos', 'Admin\PhotosController');
+    Route::resource('proles', 'Admin\ProlesController');
 });

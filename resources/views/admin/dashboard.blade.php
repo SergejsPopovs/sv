@@ -16,10 +16,12 @@
         </header>
         
         <ul>
-            <li><a href="/auth/logout">Logout</a></li>
-            <li><a href="/adminzone/articles">retaktirovat novosti</a></li>
-            <li><a href="/adminzone/events">retaktirovat irokov</a></li>
-            <li><a href="/adminzone/players">retaktirovat sobitija</a></li>
+            <li><a href="/auth/logout">Izejas</a></li>
+            <li><a href="/adminzone/photos">Fotoattēli</a> <a href="/adminzone/photos/create">pievienot jaunu</a></li>
+            <li><a href="/adminzone/articles">Jaunumi</a> <a href="/adminzone/articles/create">pievienot jaunu</a></li>
+            <li><a href="/adminzone/proles">Spēlētāja lomas</a> <a href="/adminzone/proles/create">pievienot jaunu</a></li>
+            <li><a href="/adminzone/players">Spēlētāji</a> <a href="/adminzone/players/create">pievienot jaunu</a></li>
+            <li><a href="/adminzone/events">Notikumi</a> <a href="/adminzone/events/create">pievienot jaunu</a></li>
         </ul>
         
         

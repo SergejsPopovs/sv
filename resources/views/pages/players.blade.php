@@ -5,9 +5,10 @@
     <article class="news">
         @foreach($players as $person)
         <div class="img_left">
-            <img alt="{{$person->name}}" src="../img/photos/team/{{$person->photo}}" width="200" height="200"></img>
+            <img alt="{{$person->name}}" src="{{$person->photo->location}}" width="200" height="200"></img>
         </div>
-        <h3>{{$person->name}} {{$person->surname}}</h3><br>
+        <h1 class="new-header">{{$person->name}} {{$person->surname}}</h1>
+        <h4>{{$person->prole->title}}</h4><br>
         <p class="content">{{$person->about}}<br>
         </p>
         <div class="clear"></div>

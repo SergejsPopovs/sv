@@ -12,9 +12,9 @@
             </tr>
             @foreach($events as $event)
             <tr>
-                <td>{{$event->begin_date}} - {{$event->end_date}}</td>
+                <td>{{$event->start_date}} - {{$event->end_date}}</td>
                 <td>{{$event->title}}</td>
-                <td>{{$event->place}}</td>
+                <td>{{$event->location}}</td>
             </tr>
             @endforeach
         </table>

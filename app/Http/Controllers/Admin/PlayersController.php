@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Player;
+use App\Prole;
+use App\Photo;
+
 class PlayersController extends Controller
 {
     /**
@@ -14,9 +18,19 @@ class PlayersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct() 
+    {
+        $this->middleware('auth');
+        $this->data = [
+            'title' => 'sedvolejbols',
+        ];
+    }
+    
     public function index()
     {
-        //
+        $players = Player::all();
+        $this->data['players'] = $players;
+        return view('admin.players.list',$this->data);
     }
 
     /**
@@ -26,7 +40,11 @@ class PlayersController extends Controller
      */
     public function create()
     {
-        //
+        $photos = Photo::all();
+        $this->data['photos'] = $photos;
+        $proles = Prole::all();
+        $this->data['proles'] = $proles;
+        return view('admin.players.create',$this->data);
     }
 
     /**
@@ -37,7 +55,9 @@ class PlayersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $all=$request->all();//введённые пользователем даные в массив all
+        Player::create($all);
+        return back()->with('message','spēlētājs pievienots');
     }
 
     /**
@@ -59,7 +79,14 @@ class PlayersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $player = Player::find($id);
+        $photos = Photo::all();
+        $proles = Prole::all();
+        $this->data['player'] = $player;
+        $this->data['photos'] = $photos;
+        $this->data['proles'] = $proles;
+        
+        return view('admin.players.edit',$this->data);
     }
 
     /**
@@ -71,7 +98,10 @@ class PlayersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $player = Player::find($id);
+        $player->update($request->all());
+        $player->save();
+        return back()->with('message' , 'spēlētājs atjaunināts');
     }
 
     /**
@@ -82,6 +112,8 @@ class PlayersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $player = Player::find($id);
+        $player->delete();
+        return back()->with('message' , 'spēlētājs dzēsts');
     }
 }

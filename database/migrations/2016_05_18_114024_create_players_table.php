@@ -21,6 +21,8 @@ class CreatePlayersTable extends Migration
             $table->string('about', 500);
             $table->integer('prole_id')->unsigned();
             $table->foreign('prole_id')->references('id')->on('proles');
+            $table->integer('photo_id')->unsigned();
+            $table->foreign('photo_id')->references('id')->on('photos');
             $table->timestamps();
         });
     }
